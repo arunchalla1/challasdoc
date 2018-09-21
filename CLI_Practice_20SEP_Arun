@@ -1,0 +1,565 @@
+
+chall@PallaviPC MINGW64 /
+$ aws configure
+AWS Access Key ID [****************NRBQ]:
+AWS Secret Access Key [****************kvAZ]:
+Default region name [ap-south-1]:
+Default output format [json]:
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-vpc --cidr-block 10.0.0.0/16
+{
+    "Vpc": {
+        "CidrBlock": "10.0.0.0/16",
+        "DhcpOptionsId": "dopt-09cdcb61",
+        "State": "pending",
+        "VpcId": "vpc-04c886de01e997b66",
+        "InstanceTenancy": "default",
+        "Ipv6CidrBlockAssociationSet": [],
+        "CidrBlockAssociationSet": [
+            {
+                "AssociationId": "vpc-cidr-assoc-0d68e6c76140e6348",
+                "CidrBlock": "10.0.0.0/16",
+                "CidrBlockState": {
+                    "State": "associated"
+                }
+            }
+        ],
+        "IsDefault": false,
+        "Tags": []
+    }
+}
+
+
+chall@PallaviPC MINGW64 /
+
+
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.1.0/28
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.2.0/28
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.3.0/28
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.4.0/28
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.5.0/28
+aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.6.0/28
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.1.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1a",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.1.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-0065eb2516413073b",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.2.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1a",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.2.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-08057cafd2a864185",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1a" --cidr-block 10.0.3.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1a",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.3.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-03e81524b3465cc06",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.4.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1b",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.4.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-065b8baa3009a13c7",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.5.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1b",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.5.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-0e1f37d0ac020f838",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-subnet --vpc-id vpc-04c886de01e997b66 --availability-zone "ap-south-1b" --cidr-block 10.0.6.0/28
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-south-1b",
+        "AvailableIpAddressCount": 11,
+        "CidrBlock": "10.0.6.0/28",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-002114e31160c5cd5",
+        "VpcId": "vpc-04c886de01e997b66",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": []
+    }
+}
+
+chall@PallaviPC MINGW64 /
+aws ec2 modify-subnet-attribute --subnet-id "subnet-0065eb2516413073b" --map-public-ip-on-launch
+
+chall@PallaviPC MINGW64 /
+aws ec2 modify-subnet-attribute --subnet-id subnet-065b8baa3009a13c7 --map-public-ip-on-launch
+
+
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-internet-gateway
+{
+    "InternetGateway": {
+        "Attachments": [],
+        "InternetGatewayId": "igw-00f1a67cef3409562",
+        "Tags": []
+    }
+}
+
+
+
+
+
+chall@PallaviPC MINGW64 /
+chall@PallaviPC MINGW64 /
+$ aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-04c886de01e997b66" --output text
+SUBNETS False   ap-south-1a     11      10.0.3.0/28     False   False   available       subnet-03e81524b3465cc06        vpc-04c886de01e997b66
+TAGS    Name    SUnbet03
+SUBNETS False   ap-south-1b     11      10.0.6.0/28     False   False   available       subnet-002114e31160c5cd5        vpc-04c886de01e997b66
+TAGS    Name    SUnbet06
+SUBNETS False   ap-south-1b     11      10.0.4.0/28     False   True    available       subnet-065b8baa3009a13c7        vpc-04c886de01e997b66
+TAGS    Name    Public_Subnet-2
+SUBNETS False   ap-south-1a     11      10.0.2.0/28     False   False   available       subnet-08057cafd2a864185        vpc-04c886de01e997b66
+TAGS    Name    Sunet02
+SUBNETS False   ap-south-1a     11      10.0.1.0/28     False   True    available       subnet-0065eb2516413073b        vpc-04c886de01e997b66
+TAGS    Name    Public_Subnet-1
+SUBNETS False   ap-south-1b     11      10.0.5.0/28     False   False   available       subnet-0e1f37d0ac020f838        vpc-04c886de01e997b66
+TAGS    Name    SUnbet05
+
+chall@PallaviPC MINGW64 /
+chall@PallaviPC MINGW64 /
+$ aws ec2 describe-vpcs --output text
+VPCS    10.0.0.0/16     dopt-09cdcb61   default False   available       vpc-04c886de01e997b66
+CIDRBLOCKASSOCIATIONSET vpc-cidr-assoc-0d68e6c76140e6348        10.0.0.0/16
+CIDRBLOCKSTATE  associated
+VPCS    172.31.0.0/16   dopt-09cdcb61   default True    available       vpc-0572296d
+CIDRBLOCKASSOCIATIONSET vpc-cidr-assoc-eafc8382 172.31.0.0/16
+CIDRBLOCKSTATE  associated
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 describe-internet-gateways --output text
+INTERNETGATEWAYS        igw-00f1a67cef3409562
+INTERNETGATEWAYS        igw-a609fcce
+ATTACHMENTS     available       vpc-0572296d
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 attach-internet-gateway --internet-gateway-id igw-00f1a67cef3409562 --vpc-id vpc-04c886de01e997b66
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 describe-internet-gateways --output text
+INTERNETGATEWAYS        igw-00f1a67cef3409562
+ATTACHMENTS     available       vpc-04c886de01e997b66
+INTERNETGATEWAYS        igw-a609fcce
+ATTACHMENTS     available       vpc-0572296d
+
+chall@PallaviPC MINGW64 /
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-route-table --vpc-id vpc-04c886de01e997b66
+{
+    "RouteTable": {
+        "Associations": [],
+        "PropagatingVgws": [],
+        "RouteTableId": "rtb-079394eb0e0570a9a",
+        "Routes": [
+            {
+                "DestinationCidrBlock": "10.0.0.0/16",
+                "GatewayId": "local",
+                "Origin": "CreateRouteTable",
+                "State": "active"
+            }
+        ],
+        "Tags": [],
+        "VpcId": "vpc-04c886de01e997b66"
+    }
+}
+chall@PallaviPC MINGW64 /
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 describe-route-tables --output text
+ROUTETABLES     rtb-04c998511983390cd   vpc-04c886de01e997b66
+ASSOCIATIONS    True    rtbassoc-02af664c8c57f28a5      rtb-04c998511983390cd
+ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+ROUTETABLES     rtb-1ef2eb76    vpc-0572296d
+ASSOCIATIONS    True    rtbassoc-aa9cf5c1       rtb-1ef2eb76
+ROUTES  172.31.0.0/16   local   CreateRouteTable        active
+ROUTES  0.0.0.0/0       igw-a609fcce    CreateRoute     active
+ROUTETABLES     rtb-079394eb0e0570a9a   vpc-04c886de01e997b66
+ASSOCIATIONS    False   rtbassoc-07175b2829140d6e5      rtb-079394eb0e0570a9a   subnet-065b8baa3009a13c7
+ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+TAGS    Name    Public_RTB
+ROUTETABLES     rtb-0927e06622f9b734b   vpc-04c886de01e997b66
+ASSOCIATIONS    False   rtbassoc-0317bd7bc9896cc7a      rtb-0927e06622f9b734b   subnet-08057cafd2a864185
+ASSOCIATIONS    False   rtbassoc-06e292daad0604921      rtb-0927e06622f9b734b   subnet-03e81524b3465cc06
+ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+TAGS    Name    Private_RTB
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 associate-route-table --route-table-id rtb-079394eb0e0570a9a --subnet-id subnet-0065eb2516413073b
+{
+    "AssociationId": "rtbassoc-083d411ab472d692b"
+}
+
+$ aws ec2 associate-route-table --route-table-id rtb-0927e06622f9b734b --subnet-id subnet-0e1f37d0ac020f838
+{
+    "AssociationId": "rtbassoc-0e24d26837a844bc0"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 associate-route-table --route-table-id rtb-0927e06622f9b734b --subnet-id subnet-002114e31160c5cd5
+{
+    "AssociationId": "rtbassoc-01ffef78a1ad2342f"
+
+
+
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 create-route --route-table-id rtb-079394eb0e0570a9a --destination-cidr-block 0.0.0.0/0  --gateway-id igw-00f1a67cef3409562
+
+
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 allocate-address --domain vpc
+    {
+        "PublicIp": "13.233.60.251",
+        "AllocationId": "eipalloc-04912edf83c0984ab",
+        "Domain": "vpc"
+    }
+
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 create-nat-gateway --subnet-id subnet-065b8baa3009a13c7 --allocation-id eipalloc-04912edf83c0984ab
+    {
+        "NatGateway": {
+            "CreateTime": "2018-09-20T15:02:20.000Z",
+            "NatGatewayAddresses": [
+                {
+                    "AllocationId": "eipalloc-04912edf83c0984ab"
+                }
+            ],
+            "NatGatewayId": "nat-00913a5da5dd2862c",
+            "State": "pending",
+            "SubnetId": "subnet-065b8baa3009a13c7",
+            "VpcId": "vpc-04c886de01e997b66"
+        }
+    }
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 describe-route-tables --output text
+    ROUTETABLES     rtb-04c998511983390cd   vpc-04c886de01e997b66
+    ASSOCIATIONS    True    rtbassoc-02af664c8c57f28a5      rtb-04c998511983390cd
+    ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+    ROUTETABLES     rtb-1ef2eb76    vpc-0572296d
+    ASSOCIATIONS    True    rtbassoc-aa9cf5c1       rtb-1ef2eb76
+    ROUTES  172.31.0.0/16   local   CreateRouteTable        active
+    ROUTES  0.0.0.0/0       igw-a609fcce    CreateRoute     active
+    ROUTETABLES     rtb-079394eb0e0570a9a   vpc-04c886de01e997b66
+    ASSOCIATIONS    False   rtbassoc-083d411ab472d692b      rtb-079394eb0e0570a9a   subnet-0065eb2516413073b
+    ASSOCIATIONS    False   rtbassoc-07175b2829140d6e5      rtb-079394eb0e0570a9a   subnet-065b8baa3009a13c7
+    ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+    ROUTES  0.0.0.0/0       igw-00f1a67cef3409562   CreateRoute     active
+    TAGS    Name    Public_RTB
+    ROUTETABLES     rtb-0927e06622f9b734b   vpc-04c886de01e997b66
+    ASSOCIATIONS    False   rtbassoc-01ffef78a1ad2342f      rtb-0927e06622f9b734b   subnet-002114e31160c5cd5
+    ASSOCIATIONS    False   rtbassoc-0317bd7bc9896cc7a      rtb-0927e06622f9b734b   subnet-08057cafd2a864185
+    ASSOCIATIONS    False   rtbassoc-0e24d26837a844bc0      rtb-0927e06622f9b734b   subnet-0e1f37d0ac020f838
+    ASSOCIATIONS    False   rtbassoc-06e292daad0604921      rtb-0927e06622f9b734b   subnet-03e81524b3465cc06
+    ROUTES  10.0.0.0/16     local   CreateRouteTable        active
+    TAGS    Name    Private_RTB
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 describe-nat-gateways
+    {
+        "NatGateways": [
+            {
+                "CreateTime": "2018-09-20T15:02:20.000Z",
+                "NatGatewayAddresses": [
+                    {
+                        "AllocationId": "eipalloc-04912edf83c0984ab",
+                        "NetworkInterfaceId": "eni-04f326da3bb0141dd",
+                        "PrivateIp": "10.0.4.12",
+                        "PublicIp": "13.233.60.251"
+                    }
+                ],
+                "NatGatewayId": "nat-00913a5da5dd2862c",
+                "State": "available",
+                "SubnetId": "subnet-065b8baa3009a13c7",
+                "VpcId": "vpc-04c886de01e997b66",
+                "Tags": []
+            }
+        ]
+    }
+
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 create-route --route-table-id rtb-0927e06622f9b734b --destination-cidr-block 0.0.0.0/0 --nat-gateway-id nat-00913a5da5dd2862c
+    {
+        "Return": true
+    }
+
+
+
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 describe-vpcs --output text
+    VPCS    10.0.0.0/16     dopt-09cdcb61   default False   available       vpc-04c886de01e997b66
+    CIDRBLOCKASSOCIATIONSET vpc-cidr-assoc-0d68e6c76140e6348        10.0.0.0/16
+    CIDRBLOCKSTATE  associated
+    VPCS    172.31.0.0/16   dopt-09cdcb61   default True    available       vpc-0572296d
+    CIDRBLOCKASSOCIATIONSET vpc-cidr-assoc-eafc8382 172.31.0.0/16
+    CIDRBLOCKSTATE  associated
+
+    chall@PallaviPC MINGW64 /
+    $ aws ec2 create-network-acl --vpc-id vpc-04c886de01e997b66
+    {
+        "NetworkAcl": {
+            "Associations": [],
+            "Entries": [
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "IcmpTypeCode": {},
+                    "PortRange": {},
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "IcmpTypeCode": {},
+                    "PortRange": {},
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                }
+            ],
+            "IsDefault": false,
+            "NetworkAclId": "acl-083211b12a3903fba",
+            "Tags": [],
+            "VpcId": "vpc-04c886de01e997b66"
+        }
+    }
+
+
+
+
+
+    chall@PallaviPC MINGW64 /
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 100 --protocol tcp --port-range From=80,To=80 --cidr-block 0.0.0.0/0 --rule-action allow
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 110 --protocol udp --port-range From=53,To=53 --cidr-block 0.0.0.0/0 --rule-action allow
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 120 --protocol tcp --port-range From=22,To=22 --cidr-block 0.0.0.0/0 --rule-action allow
+
+
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 100 --protocol tcp --port-range From=80,To=80 --cidr-block 0.0.0.0/0 --rule-action allow
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 110 --protocol udp --port-range From=53,To=53 --cidr-block 0.0.0.0/0 --rule-action allow
+aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 120 --protocol tcp --port-range From=22,To=22 --cidr-block 0.0.0.0/0 --rule-action allow
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 100 --protocol tcp --port-range From=80,To=80 --cidr-block 0.0.0.0/0 --rule-action allow
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 110 --protocol ucp --port-range From=53,To=53 --cidr-block 0.0.0.0/0 --rule-action allow
+
+An error occurred (InvalidParameterValue) when calling the CreateNetworkAclEntry operation: Invalid value 'ucp' for IP protocol. Unknown protocol.
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 110 --protocol udp --port-range From=53,To=53 --cidr-block 0.0.0.0/0 --rule-action allow
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --ingress --rule-number 120 --protocol tcp --port-range From=22,To=22 --cidr-block 0.0.0.0/0 --rule-action allow
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 100 --protocol tcp --port-range From=80,To=80 --cidr-block 0.0.0.0/0 --rule-action allow
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 110 --protocol udp --port-range From=53,To=53 --cidr-block 0.0.0.0/0 --rule-action allow
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-network-acl-entry --network-acl-id acl-083211b12a3903fba --egress --rule-number 120 --protocol tcp --port-range From=22,To=22 --cidr-block 0.0.0.0/0 --rule-action allow
+
+
+
+
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-security-group --group-name "EC2_Proxy_Server" --description "Proxy-Server-SSH-Port-22" --vpc-id vpc-04c886de01e997b66
+{
+    "GroupId": "sg-0deead79a62ae5b16"
+}
+
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 authorize-security-group-ingress --group-id sg-0deead79a62ae5b16 --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+chall@PallaviPC MINGW64 /
+$
+
+
+HOW to add/associate subnets to NACL in CLI?
+
+
+$ aws ec2 describe-network-acls --output text
+NETWORKACLS     True    acl-0a0762ff03f1fdcd8   vpc-04c886de01e997b66
+ASSOCIATIONS    aclassoc-04da381f89a725f6c      acl-0a0762ff03f1fdcd8   subnet-08057cafd2a864185
+ASSOCIATIONS    aclassoc-0228c77fca6e3eee9      acl-0a0762ff03f1fdcd8   subnet-002114e31160c5cd5
+ASSOCIATIONS    aclassoc-01a055d2fd5c58b51      acl-0a0762ff03f1fdcd8   subnet-065b8baa3009a13c7
+ASSOCIATIONS    aclassoc-0caa894e91569435c      acl-0a0762ff03f1fdcd8   subnet-0e1f37d0ac020f838
+ASSOCIATIONS    aclassoc-09c3ba64c4b09c8ef      acl-0a0762ff03f1fdcd8   subnet-03e81524b3465cc06
+ASSOCIATIONS    aclassoc-036a579bcc7875750      acl-0a0762ff03f1fdcd8   subnet-0065eb2516413073b
+ENTRIES 0.0.0.0/0       True    -1      allow   100
+ENTRIES 0.0.0.0/0       True    -1      deny    32767
+ENTRIES 0.0.0.0/0       False   -1      allow   100
+ENTRIES 0.0.0.0/0       False   -1      deny    32767
+NETWORKACLS     True    acl-69c6c401    vpc-0572296d
+ASSOCIATIONS    aclassoc-19552d73       acl-69c6c401    subnet-f73583bb
+ENTRIES 0.0.0.0/0       True    -1      allow   100
+ENTRIES 0.0.0.0/0       True    -1      deny    32767
+ENTRIES 0.0.0.0/0       False   -1      allow   100
+ENTRIES 0.0.0.0/0       False   -1      deny    32767
+NETWORKACLS     False   acl-083211b12a3903fba   vpc-04c886de01e997b66
+ENTRIES 0.0.0.0/0       True    6       allow   100
+PORTRANGE       80      80
+ENTRIES 0.0.0.0/0       True    17      allow   110
+PORTRANGE       53      53
+ENTRIES 0.0.0.0/0       True    6       allow   120
+PORTRANGE       22      22
+ENTRIES 0.0.0.0/0       True    -1      deny    32767
+ENTRIES 0.0.0.0/0       False   6       allow   100
+PORTRANGE       80      80
+ENTRIES 0.0.0.0/0       False   17      allow   110
+PORTRANGE       53      53
+ENTRIES 0.0.0.0/0       False   6       allow   120
+PORTRANGE       22      22
+ENTRIES 0.0.0.0/0       False   -1      deny    32767
+
+
+aws ec2 replace-network-acl-association --association-id aclassoc-04da381f89a725f6c --network-acl-id acl-083211b12a3903fba
+aws ec2 replace-network-acl-association --association-id aclassoc-0228c77fca6e3eee9 --network-acl-id acl-083211b12a3903fba
+aws ec2 replace-network-acl-association --association-id aclassoc-01a055d2fd5c58b51 --network-acl-id acl-083211b12a3903fba
+aws ec2 replace-network-acl-association --association-id aclassoc-0caa894e91569435c --network-acl-id acl-083211b12a3903fba
+aws ec2 replace-network-acl-association --association-id aclassoc-09c3ba64c4b09c8ef --network-acl-id acl-083211b12a3903fba
+aws ec2 replace-network-acl-association --association-id aclassoc-036a579bcc7875750 --network-acl-id acl-083211b12a3903fba
+
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-04da381f89a725f6c --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-0640a5898bc36649e"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-0228c77fca6e3eee9 --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-055e78e290ae17c56"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-01a055d2fd5c58b51 --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-038e6cd22ef35b1ef"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-0caa894e91569435c --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-034feddb849212bc2"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-09c3ba64c4b09c8ef --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-04b7134aef5d314c8"
+}
+
+chall@PallaviPC MINGW64 /
+$ aws ec2 replace-network-acl-association --association-id aclassoc-036a579bcc7875750 --network-acl-id acl-083211b12a3903fba
+{
+    "NewAssociationId": "aclassoc-02bf355f4080457e7"
+}
+
+chall@PallaviPC MINGW64 /
+chall@PallaviPC MINGW64 /
+$ aws ec2 create-key-pair --key-name practice01
+{
+    "KeyFingerprint": "a1:bf:6f:48:8c:ca:27:2f:bd:ef:25:e7:ac:cf:81:ba:08:0f:fe:a6",
+    "KeyMaterial": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEAiqMo7M+gNulCAfIO7Ex8uKG0Kb/Ln2VbUi1dVWPodlzAmTAieHuJ39Cx7ccf\nWVK0uGOfmDzjwbCb4qTWpb95YDPABSuq+X/u9qu2vAF0NUIWtu/FKbaU6CpS8/17j1jA/Y6ifkAm\nY97jHo+P5kiVWwV70ive6x8gPk8GEDT+3EogchtKdHeyl+RrTGgXIRgm4SrvesthTgG5FUIphDWJ\n53toQDA++QhpnFYPljxG5Ts3kPUsoPadqaffw1EhL8wfXDSslO0d5f8HtCww3YUxR/lc62nE2vCj\nEp1n0yU1NlrFAtLoprZBtlsRbRwpATnVNaqhu/0GAQj8pJDbN/XkMwIDAQABAoIBAQCCarhuBWdP\nIKECmYXmTpGpUhzchVt05/E/XgOF94VQCzL3KGvU8UojLPyklQPtkDsHllgk62rJ42zRiYWOyI/S\nqvwBITImoW3XyHMPa0K5cyFRGD9eXS65NE9yzUr172UlYY+Euq4ilyMKtbyFwlQWGxN/A9whTNeV\nJdurVV9HNGXdFqxqdQ+gFaIKRmkQ3grBUK2R1oRmpW8HiLjhGKkOK9PnEOA+HsCFVrGm/ZGFTZJj\nOnoaClTInGYhtjtGvopKbSBcsJ1kkpbALtPG2n9H8yY48VQB8uAVxNvDQKRzqi1kzGc1dozDbu9v\nPXFXtx0YlW0JAr6H/JoiOBlwmPphAoGBALx8d4+Ug1AG7rxh9x6nD4N9OHAJqlM9ThSytOknyu65\nIKHAXbmTB2vT10ZcnN30Am7PTWM9pwkBzT5QzxrAcRlOoqamyisKkNva+DtZYnE2gAysDVRXgIB/\n5lnXxatH0SyQxiA+nWqj9YdvD9Jb5UdISNjtb/3+9CfJF6G4lZQDAoGBALxLuZtetpFb7rG6M29H\nsIR3SZDiT5cIHHAQlZRU60nizmLpn1dl6qx0KtQdL6RCisqWqGZdBKa4CQKL9N034mNGUMGraV51\nKjt/8/EKizloc9oyx/qODEPwbUKPKflW7jZTAeQbnne/0ajxlUt7xnfYlaU4Ch/aNIwLrYecF7AR\nAoGASPNPfwW28QFN4yFzeKymB3kun8ZN4tumXcJw3JCnLU//fjsqy0lJpQUfm776g7kOO/8F77QL\n8yN8YXL7RVpYK7hQoXmKY7A6Mq2ER8wnmrPCSaVJn2wicxmNeRZXDhzEq5/43r/9QynkPJ/SmtMw\nYS9r6nGzV7YWn1NoTxJW6isCgYEAs8YsyH1uG2xFgeQ/9U/h5Scq0qxvxsgUtp3u4fcNybZEzEU3\nP69rlgk3VtsiwFZTwsaCs3C93xs4ZvkO6SLQ/22D7tRkPq3oi3RHiGxDrqTeb4YqTjrO1RK4jmK3\ndXqc5rrrxEjmTHiUiRNWMgJT49qiTWMqr2ya3NbNb/sE1rECgYEAnLqzJghnL1dUW2HN/kBS9BKZ\nxtgCma1RwWqBFTRSRd/IAdtXvWWYJ5rWQJe6W7jp7KAshkiDLCfOI5ZHmyRzmlkrlAMPT2WEwblx\nMl0+e5yAeeTRvHGghvRFylD/mhmp9PgCQSWkb4s+tPAWsTB/cpGTR+ste4liFxrUJPgqZro=\n-----END RSA PRIVATE KEY-----",
+    "KeyName": "practice01"
+}
+
+
+aws ec2 run-instances --image-id ami-0912f71e06545ad88 --count 1 --instance-type t2.micro --key-name practice01 --security-group-ids sg-0deead79a62ae5b16 --subnet-id subnet-0065eb2516413073b --tag-specifications 'ResourceType=instance,Tags=[{Key=proxy_server,Value=production}]'
